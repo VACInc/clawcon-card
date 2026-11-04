@@ -231,11 +231,14 @@
       box-shadow: inset 0 0 24px rgba(255,48,72,.03);
     }
     .qr-card img {
-      width: 168px;
-      height: 168px;
+      /* 33 modules (incl. quiet zone) x 5px: whole CSS pixels per module
+         keep module edges sharp at any device pixel ratio. qr.png is the
+         same grid at 15px per module (3x). */
+      width: 165px;
+      height: 165px;
       border-radius: 14px;
       background: #fff;
-      padding: 9px;
+      image-rendering: pixelated;
     }
     .qr-title {
       font-weight: 950;
@@ -281,7 +284,7 @@
         </nav>
 
         <section class="qr-card" aria-label="QR code for this page">
-          <img src="qr.png" alt="QR code for https://vacinc.github.io/">
+          <img src="qr.png" width="165" height="165" alt="QR code for https://vacinc.github.io/">
           <div>
             <div class="qr-title">Scan to reconnect</div>
             <div class="qr-text">Public URL, same links, zero hallway typing.</div>
